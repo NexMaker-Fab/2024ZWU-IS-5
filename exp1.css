@@ -19,7 +19,7 @@ header h1{
 }
 .ww1 {
     background-color: rgb(250, 215, 172);
-    height:360px;
+    height:580px;
     width:100%;
     font-size: 20px;
     display: flex;
@@ -28,25 +28,10 @@ header h1{
     justify-content: center;
     text-align: center;
 }
-.ww2 {
-    background-color: bisque;
-    height:360px;
-    width:100%;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-h5 {
-    background-color: blanchedalmond;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+
 h6 {
+    background-color: black;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
