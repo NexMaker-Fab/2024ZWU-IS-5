@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My code display</title>
+    <style>
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            color: white;
+            background-color: black;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        /* 标题样式 */
+        h1, h2 {
+            text-align: center;
+            color: #ff6f00;
+        }
+        /* 代码区样式 */
+        .code-section {
+            background-color: #1e1e1e;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        /* 代码注释样式 */
+        .code-comment {
+            color: #ff6f00;
+            font-style: italic;
+        }
+        /* 页脚样式 */
+        footer {
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
+            
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to my code display webpage</h1>
+        <p>Here are some codes I have written, I hope you will like them.</p>
+    </header>
+
+    <section class="code-section">
+        <h2>HTML section of homepage code</h2>
+        <pre>
+            <code>
+                !DOCTYPE html 
+                html lang="en" 
+                head 
+                  meta charset="UTF-8" 
+                  meta name="viewport" content="width=device-width, initial-scale=1.0" 
+                  title Our Group Homework /title 
+                  link rel="stylesheet" href="style.css" 
+                /head 
+                body 
+                  div id="intro" 
+                    h1 Welcome our webpage /h1 
+                /div 
+                div id="main" 
+                  header 
+                    h1 BCZG Group /h1 
+                    nav 
+                    ul 
+                      li  a href="example1.html" Group imformation /a  /li 
+                      li  a href="name.html" Member Introduction /a  /li 
+                    /ul 
+                    /nav 
+                    /header 
+                    main 
+                    section class="w1" 
+                    h2  a href="daily.html" Daily Homework /a  /h2 
+                    /section 
+                    section class="w2" 
+                    h2  a href="#" Final Project /a  /h2 
+                    /section 
+                    /main 
+                    footer 
+                      h6 The webpage was created by the BCZG team /h6 
+                    /footer 
+                /div 
+                
+                /body 
+                /html 
+
+
+
+            </code>
+        </pre>
+    </section>
+    <section class="code-section">
+        <h2>CSS section of homepage code</h2>
+        <pre>
+            <code>
+                @keyframes fadeOut {
+                    from {opacity: 1;}
+                    to   {opacity: 0;}
+                }
+                
+                @keyframes fadeIn {
+                    from {opacity: 0;}
+                    to   {opacity: 1;}
+                }
+                
+                #intro {
+                    animation: fadeOut 3s forwards;    /* forwards 保证动画结束后，元素保持结束状态 */
+                    position: absolute;
+                    width:100%;
+                    height: 120vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color:white;
+                }
+                #intro h1{
+                    color:black;
+                }
+                
+                #main {
+                    animation: fadeIn 3s forwards;
+                    animation-delay: 3s;  /* 动画延迟3秒开始，对应 intro 结束 */
+                    opacity:0;
+                    height: 100vh;
+                    background-color:#fff;
+                }
+                
+                *{
+                    padding:0;
+                    margin:0;
+                }
+                
+                header{
+                    background-color: black;
+                    height:180px;
+                    width:100%;
+                }
+                h1{
+                    color:white;
+                    font-size: 72px;
+                }
+                header h1{
+                    position:absolute;
+                    right: 60vw;
+                    top:0vw;
+                    line-height: 160px;
+                }
+                header ul{
+                    position:absolute;
+                    right:5vw;
+                    top:0vw;
+                    line-height:180px;
+                }
+                header li{
+                    display:inline;
+                    margin-right: 4vw;
+                }
+                header a{
+                    color:white;
+                    text-decoration:none;
+                }
+                header a:hover{
+                    text-decoration:underline;
+                }
+                main a{
+                    color:rgba(255, 255, 255, 0.925);
+                    text-decoration:none;
+                }
+                main a:hover{
+                    text-decoration:underline;
+                }
+                .w1{
+                    background-color: blanchedalmond;
+                    color:white;
+                    height:60vh;
+                    background-image: url("image/11.jpg");
+                    background-size: cover;
+                    background-repeat:no-repeat;
+                    background-position:center;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .w1 h2{
+                    font-size: 60px;
+                }
+                .w1 a{
+                    border: 1px solid #ACACAC;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                }
+                .w2{
+                    background-color: black;
+                    color:white;
+                    height: 40vh;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .w2 h2{
+                    font-size: 60px;
+                }
+                .w2 a{
+                    border: 1px solid #ACACAC;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                }
+                
+                footer h6{
+                    background-color: black;
+                    color: white;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                 
+
+
+
+            </code>
+        </pre>
+    </section>
+    <a href="javascript:history.back()" class="back-button">Back</a>
+    <!-- 你可以根据需要添加更多的代码展示区 -->
+
+    <footer>
+        <p>About me: I am a person who loves programming. If you have any questions or suggestions about my code, please feel free to contact me.</p>
+        <p>Contact information: cgy040323@163.com</p>
+    </footer>
+</body>
+</html>
