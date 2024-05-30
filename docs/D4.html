@@ -115,7 +115,63 @@ Community support: p5.js has a very active community where you can find a large 
     </section>
     <section id="link-between-processing-and-arduino">
         <h1>Processing与Arduino的链接</h1>
-        <!-- 如何用Arduino控制Processing，如何用Processing控制Arduino -->
+        <code><h2>
+          This code will enable processing to control the nano board. If the mouse is clicked within the designated range, the LED light will turn on, and vice versa, it will turn off
+      </h2></code>
+      <h1>代码展示</h1>
+      <code><h2>
+        arduino part:<br>
+
+        int ledPin = 13; // LED连接的引脚<br>
+        
+        void setup() {<br>
+          pinMode(ledPin, OUTPUT); // 设置LED引脚为输出<br>
+          Serial.begin(9600); // 启动串行通信，波特率9600<br>
+        }<br>
+        
+        void loop() {<br>
+          if (Serial.available() > 0) { // 如果串行通信中有数据<br>
+            char data = Serial.read(); // 读取数据<br>
+            if (data == 'H') { // 如果数据是'H'<br>
+              digitalWrite(ledPin, HIGH); // 点亮LED灯<br>
+            } <br>
+            else if (data == 'L') { // 如果数据是'L'<br>
+              digitalWrite(ledPin, LOW); // 熄灭LED灯<br>
+            }<br>
+          }<br>
+        }<br>
+
+        processing part:<br>
+        
+        import processing.serial.*; // 导入串行通信库<br>
+        
+        Serial myPort; // 创建一个Serial对象<br>
+        
+        void setup() {<br>
+          myPort = new Serial(this, Serial.list()[0], 9600); // 初始化Serial对象<br>
+        }<br>
+        
+        void draw() {<br>
+          // 不在draw函数中添加任何东西，所以画布会保持静止<br>
+        }<br>
+        
+        void mousePressed() {<br>
+          myPort.write('H'); // 当鼠标被按下时，发送'H'到Arduino<br>
+        }<br>
+        
+        void mouseReleased() {<br>
+          myPort.write('L'); // 当鼠标被释放时，发送'L'到Arduino<br>
+        }<br>
+      </h2></code>
+      <h1>电路图展示</h1>
+      <img src="image/WEB14.JPG">
+      <h1>成果展示</h1>
+      <div class="video-container">
+          <video controls>
+            <source src="image/VD2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
     </section>
 </body>
 </html>
