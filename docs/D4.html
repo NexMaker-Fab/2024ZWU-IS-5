@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>我的Processing与Arduino项目</title>
+    <link rel="stylesheet" type="text/css" href="D4.css">
+    <style>
+        .video-container {
+          width: 100vh;  /* 设置视频容器的宽度为50% */
+          height: auto;  /* 设置视频容器的高度自动适应 */
+        }
+        .video-container video {
+          width: 100vh;  /* 设置视频的宽度为100% */
+          height: auto;  /* 设置视频的高度自动适应 */
+        }
+        </style>
+</head>
+<body>
+    <header>
+        <h1>我的Processing与Arduino项目</h1>
+    </header>
+    <section id="processing-introduction">
+        <h1>Processing介绍</h1>
+        <code>
+        <h2>Processing is an open-source programming language and integrated development environment developed by Casey Reas and Ben Fry (along with other developers) in 2001 at the MIT Media Lab. It aims to provide a platform for students, artists, designers, researchers, and enthusiasts in the fields of electronic art, new media art, and visual design to learn programming basics.
+The main features of Processing include:
+Easy to learn: The Processing language is based on Java, but it simplifies many complex programming concepts, making it easier for beginners to get started.
+Visualization: Processing's powerful graphics library enables users to create various visual effects, including 2D, 3D graphics, animations, and more.
+Interactivity: Processing can interact with various hardware devices, such as mice, keyboards, touch screens, and even microcontrollers such as Arduino.
+Open source and community: Processing is open source with a large community support, where users can find a wealth of learning resources and share their own works.</h2>
+        </code>
+        <h1>processing工作方式</h1>
+        <code><h2>
+            Processing uses a programming language similar to Java, but simplifies many complex programming concepts, making it easier to get started. Here are some basic Processing programming concepts:<br>
+
+1. Setup and Draw: A Processing program typically consists of two main parts: 'setup()' and 'draw()'` The setup() function runs once at the beginning of the program to initialize settings` The draw() function runs after setup() and continuously loops to create animations.
+            
+```Processing
+Void setup(){
+Size (640, 480)// Set Canvas Size
+Background (0)// Set background color
+}
+            
+Void draw(){
+//Draw graphics on the canvas
+}
+```<br>
+            <img src="image/p1.JPG" alt="1"><br>
+2. Shape and Color: Processing provides a series of functions to draw basic shapes (such as' ellipse() ',' rect() ', etc.) and set colors (such as' fill()', 'stroke()', etc.).
+            
+```Processing
+Void draw(){
+Fill (255)// Set the fill color to white
+Ellipses (50, 50, 80, 80)// Draw a circle with a radius of 80 at (50, 50)
+}
+```<br>
+            <img src="image/p2.JPG" alt="2"><br>
+3. Interaction: Processing allows for easy creation of interactive programs. For example, by using the 'mouseX' and 'mouseY' variables, you can obtain the current position of the mouse.
+            
+```Processing
+Void draw(){
+Ellipses (mouseX, MouseY, 80, 80);//Draw a circle at the mouse position
+}
+```<br>
+            <img src="image/p3.JPG" alt="3"><br>
+4. Image and sound: Processing can also process images and sound. For example, the 'loadImage()' function can load images, and the 'PImage' class can be used to manipulate images.
+            
+The above are just some basic concepts of Processing programming, and in fact, the capabilities of Processing go far beyond that. You can find more tutorials and routines on the official website of Processing to help you learn and master Processing more deeply.</h2>
+        </code>
+        <h1>与processing类似的软件</h1>
+        <code><h2>
+            <img src="image/p5js.png" alt="p5js"><br>
+            P5.js is a JavaScript library that is closely related to Processing. Actually, P5.js was created by Lauren McCarthy, a member of the Processing Foundation, with the aim of bringing the ideas and spirit of Processing into the world of web pages and JavaScript.
+The main features of p5.js include:
+Easy to learn: p5.js uses JavaScript language, which is a very suitable programming language for beginners, especially for those who want to create on web pages.
+Visualization: p5.js inherits the visual characteristics of Processing and provides a large number of functions to create and control graphics and animations.
+Interactivity: P5.js can easily interact with webpage elements and events, such as mouse clicks, keyboard buttons, sliders, etc.
+Web friendly: As p5.js is based on JavaScript, it can be easily combined with HTML and CSS to create rich interactive web pages.
+Community support: p5.js has a very active community where you can find a large number of tutorials, routines, and projects, as well as share your own works.
+        </h2></code>
+    </section>
+    <section id="interaction-with-processing">
+        <h1>"键鼠与Processing的互动"项目介绍</h1>
+        <code><h2>
+            The processing code will draw a circle at the location of the mouse click, and when the 'r' key on the keyboard is pressed, the canvas will be cleared
+        </h2></code>
+        <h1>代码展示</h1>
+        <code><h2>
+            void setup() {<br>
+                size(640, 480);  // 设置画布大小<br>
+                background(255); // 设置背景颜色为白色<br>
+              }<br>
+              
+              void draw() {<br>
+                // 不在draw函数中添加任何东西，所以画布会保持静止<br>
+              }<br>
+              
+              void mousePressed() {<br>
+                fill(0);  // 设置填充颜色为黑色<br>
+                ellipse(mouseX, mouseY, 50, 50);  // 在鼠标点击的位置绘制一个直径为50的圆<br>
+              }<br>
+              
+              void keyPressed() {<br>
+                if (key == 'r' || key == 'R') {<br>
+                  background(255);  // 如果按下'r'键，就将画布清空（重新填充为白色）<br>
+                }<br>
+              }<br>
+        </h2></code>
+        <h1>成果展示</h1>
+        <div class="video-container">
+            <video controls>
+              <source src="image/VD1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+    </section>
+    <section id="link-between-processing-and-arduino">
+        <h1>Processing与Arduino的链接</h1>
+        <!-- 如何用Arduino控制Processing，如何用Processing控制Arduino -->
+    </section>
+</body>
+</html>

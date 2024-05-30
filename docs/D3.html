@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>我的Arduino项目</title>
+    <link rel="stylesheet" type="text/css" href="D3.css">
+</head>
+<body>
+    <header>
+        <h1>我的Arduino项目</h1>
+    </header>
+    <section id="project-introduction">
+        <h1>项目介绍</h1>
+        <h2>The light bulb is first connected to the circuit board,<br>
+           and then to the ultrasonic sensor, After writing the code in the Arudino program,<br>
+           input it so that the light bulb goes out when the object is close and lights up when it is far away</h2>
+    </section>
+    <section id="code-introduction">
+        <h1>代码介绍</h1>
+        int count = 0;<br>
+const int LED1=12;<br>
+const int LED2=13;<br>
+long duration;<br>
+// PULSE WIDTH<br>
+
+void setup() {<br>
+    // set Serial communication<br>
+    Serial.begin(115200);<br>
+    // set pin mode<br>
+    pinMode(TrigPin, OUTPUT);<br>
+    pinMode(EchoPin, INPUT);<br>
+    // init pin<br>
+    digitalWrite(TrigPin, LOW);<br>
+    delay(1);<br>
+    pinMode(LED1, OUTPUT); //<br>
+    pinMode(LED2, OUTPUT); //<br>
+}<br>
+
+void loop() {<br>
+    int distance=getDistance();//<br>
+    Serial.println(count++);<br>
+    Serial.println(getDistance());<br>
+    Serial.println("");<br>
+    Serial.println("");<br>
+    if(distance>500){<br>
+      digitalWrite(LED1,HIGH);<br>
+      digitalWrite(LED2,LOW);<br>
+      }<br>
+    else{<br>
+      digitalWrite(LED1,LOW);<br>
+      digitalWrite(LED2,HIGH);<br>
+      }<br>
+    delay(1000);<br>
+}<br>
+
+long getDistance() {<br>
+    // trig<br>
+    digitalWrite(TrigPin, LOW);<br>
+    delayMicroseconds(2);<br>
+    digitalWrite(TrigPin, HIGH);<br>
+    delayMicroseconds(10);<br>
+    digitalWrite(TrigPin, LOW);<br>
+    // echo<br>
+    duration = pulseIn(EchoPin, HIGH);     // unit: us<br>
+    return duration * 0.34029 / 2;         // unit: mm<br>
+}<br>
+    </section>
+    <section id="circuit-diagram">
+        <h1>电路图展示</h1>
+        <!-- 电路图展示内容 -->
+    </section>
+    <section id="final-product">
+        <h1>成品展示</h1>
+        <!-- 成品展示内容 -->
+    </section>
+</body>
+</html>

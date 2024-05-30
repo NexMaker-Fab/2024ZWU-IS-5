@@ -57,7 +57,56 @@
         <h1>Welcome to my code display webpage</h1>
         <p>Here are some codes I have written, I hope you will like them.</p>
     </header>
+    <section class="code-section">
+        <h2>How to configure a website?</h2>
+        <pre>
+            <code>
+            <h2>First.</h2>
+            Installing all the tools needed to develop the software
 
+            1.Git:It serves as a control system for tracking changes to the code base, collaborating, managing
+            project versions, which allows us to clone, commit, and push changes to GitHub.
+            2.Github:For our website,we utilize the github service.
+            3.Github Desktop: To move or push our coding from local to GitHub, we used github desktop.
+            4.VScode:We used the Visual Studio code to write down our documents.
+            5.Markdown and Html language:to write our document.
+            6.CSS: Corresponds with html. Used to style the website
+            <h2>Second</h2>
+            Open this website and click here
+            <img src="image/web1.JPG" width="800">
+            Set your warehouse name and click on the two buttons below
+            <img src="image/web2.JPG" width="800">
+            Find your library and click on it
+            <img src="image/web3.JPG" width="800">
+            Click on Settings, then click on the webpage and 
+            set the location of your library in the order of 123. Okay, a basic library prototype is completed
+            <img src="image/web4.JPG" width="800">
+            <img src="image/web5.JPG" width="800">
+            <h2>Thrid</h2>
+            open your Github Desktop!Look at the black circles and create a new library
+            <img src="image/web6.JPG" width="800">
+            Do you remember the library you just created on the webpage? Find its way to clone it
+            <img src="image/web7.JPG" width="800">
+            like it
+            <img src="image/web8.JPG" width="800">
+            <h2>fourth</h2>
+            Now let's open VS code and start making your own webpage seriously!
+            <img src="image/web9.JPG" width="800">
+        </code>
+    </pre>
+</section>
+<section class="code-section">
+    <h2>How to design web pages?</h2>
+    <pre>
+        <code>
+                let's analyze the overall layout of the webpage, including three parts: text, background color, background image, and links
+                <img src="image/web10.JPG" width="800">
+                For this, you need to write two sided code in VS, which is the two sided code I will show next
+                <img src="image/web11.JPG" width="800">
+                HTML is the core of a webpage, and key information needs to be input from it. CSS is mainly responsible for polishing web pages
+    </code>
+</pre>
+</section>
     <section class="code-section">
         <h2>HTML section of homepage code</h2>
         <pre>
@@ -68,31 +117,31 @@
                   meta charset="UTF-8" 
                   meta name="viewport" content="width=device-width, initial-scale=1.0" 
                   title Our Group Homework /title 
-                  link rel="stylesheet" href="style.css" 
+                  link rel="stylesheet" href="style.css"   //将index.html和style.css联系在一起
                 /head 
                 body 
-                  div id="intro" 
-                    h1 Welcome our webpage /h1 
+                  div id="intro"  //定义id，使得css中可以使用intro修改开头动画属性
+                    h1 Welcome our webpage /h1      //开头动画文字展示
                 /div 
                 div id="main" 
-                  header 
+                  header //网页头部
                     h1 BCZG Group /h1 
                     nav 
                     ul 
-                      li  a href="example1.html" Group imformation /a  /li 
+                      li  a href="example1.html" Group imformation /a  /li  //类似代码作用：为文字添加链接，点击文字可链接到相应的HTML
                       li  a href="name.html" Member Introduction /a  /li 
                     /ul 
                     /nav 
                     /header 
-                    main 
-                    section class="w1" 
+                    main //网页中心部分
+                    section class="w1"  //用section分类相同前置条件（比如同一字体同一位置）的代码文字，也可重复利用
                     h2  a href="daily.html" Daily Homework /a  /h2 
                     /section 
                     section class="w2" 
                     h2  a href="#" Final Project /a  /h2 
                     /section 
                     /main 
-                    footer 
+                    footer //网页尾部
                       h6 The webpage was created by the BCZG team /h6 
                     /footer 
                 /div 
@@ -109,7 +158,7 @@
         <h2>CSS section of homepage code</h2>
         <pre>
             <code>
-                @keyframes fadeOut {
+                @keyframes fadeOut {      
                     from {opacity: 1;}
                     to   {opacity: 0;}
                 }
@@ -120,7 +169,7 @@
                 }
                 
                 #intro {
-                    animation: fadeOut 3s forwards;    /* forwards 保证动画结束后，元素保持结束状态 */
+                    animation: fadeOut 3s forwards;    // forwards 保证动画结束后，元素保持结束状态 
                     position: absolute;
                     width:100%;
                     height: 120vh;
@@ -130,36 +179,36 @@
                     background-color:white;
                 }
                 #intro h1{
-                    color:black;
+                    color:black;   //设置文字颜色为黑色
                 }
                 
                 #main {
                     animation: fadeIn 3s forwards;
-                    animation-delay: 3s;  /* 动画延迟3秒开始，对应 intro 结束 */
+                    animation-delay: 3s;  // 动画延迟3秒开始，对应 intro 结束 //
                     opacity:0;
-                    height: 100vh;
-                    background-color:#fff;
+                    height: 100vh;  //设置部分高度
+                    background-color:#fff;  //设置背景颜色为黑色
                 }
                 
                 *{
-                    padding:0;
+                    padding:0;  //设置网页初始状态
                     margin:0;
                 }
                 
                 header{
                     background-color: black;
                     height:180px;
-                    width:100%;
+                    width:100%;  //设置网页头部宽度
                 }
                 h1{
-                    color:white;
-                    font-size: 72px;
+                    color:white; 
+                    font-size: 72px;  //设置字体大小
                 }
                 header h1{
-                    position:absolute;
-                    right: 60vw;
-                    top:0vw;
-                    line-height: 160px;
+                    position:absolute;  //取字体位置为绝对位置
+                    right: 60vw;  //距离网页右端距离设置为60vw
+                    top:0vw;  //距离顶端距离设置为0vw
+                    line-height: 160px; 
                 }
                 header ul{
                     position:absolute;
@@ -168,15 +217,15 @@
                     line-height:180px;
                 }
                 header li{
-                    display:inline;
+                    display:inline; 
                     margin-right: 4vw;
                 }
                 header a{
                     color:white;
-                    text-decoration:none;
+                    text-decoration:none; //取消超链接下端黑线
                 }
                 header a:hover{
-                    text-decoration:underline;
+                    text-decoration:underline; //归还超链接下端黑线
                 }
                 main a{
                     color:rgba(255, 255, 255, 0.925);
@@ -189,22 +238,22 @@
                     background-color: blanchedalmond;
                     color:white;
                     height:60vh;
-                    background-image: url("image/11.jpg");
-                    background-size: cover;
-                    background-repeat:no-repeat;
+                    background-image: url("image/11.jpg"); //设置背景图片为超链接image文件夹里名为11的jpg文件
+                    background-size: cover; //背景颜色覆盖
+                    background-repeat:no-repeat; 
                     background-position:center;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    justify-content: center;
+                    justify-content: center;  //设置各项数据居中，并与所处位置相对应
                 }
                 .w1 h2{
                     font-size: 60px;
                 }
                 .w1 a{
-                    border: 1px solid #ACACAC;
+                    border: 1px solid #ACACAC;  //边缘线设置，宽窄和颜色设置
                     padding: 10px 20px;
-                    border-radius: 5px;
+                    border-radius: 5px; //边缘线圆弧化
                 }
                 .w2{
                     background-color: black;
@@ -236,6 +285,16 @@
 
             </code>
         </pre>
+    </section>
+    <section class="code-section">
+        <h2>Upload your webpage on GitHub</h2>
+        <pre>
+            <code>
+                Enter some text in 1, such as uploading all files, and then click on 2
+                <img src="image/web12.JPG" width="800">
+                
+        </code>
+    </pre>
     </section>
     <a href="javascript:history.back()" class="back-button">Back</a>
     <!-- 你可以根据需要添加更多的代码展示区 -->
