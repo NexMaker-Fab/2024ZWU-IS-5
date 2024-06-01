@@ -13,6 +13,18 @@
           height: auto;  /* 设置视频的高度自动适应 */
         }
         </style>
+        <style>
+          .back-button {
+              position: absolute;
+              top: 10px;
+              left: 10px;
+              padding: 10px;
+              color: white;
+              background-color: black;
+              cursor: pointer;
+              text-decoration: none;
+          }
+      </style>
 </head>
 <body>
     <header>
@@ -173,5 +185,6 @@ Community support: p5.js has a very active community where you can find a large 
           </video>
         </div>
     </section>
+    <a href="javascript:history.back()" class="back-button">Back</a>
 </body>
 </html>

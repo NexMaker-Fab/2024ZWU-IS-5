@@ -3,6 +3,28 @@
 <head>
     <title>我的Arduino项目</title>
     <link rel="stylesheet" type="text/css" href="D3.css">
+    <style>
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            color: white;
+            background-color: black;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+    <style>
+        .video-container {
+          width: 100vh;  /* 设置视频容器的宽度为50% */
+          height: auto;  /* 设置视频容器的高度自动适应 */
+        }
+        .video-container video {
+          width: 100vh;  /* 设置视频的宽度为100% */
+          height: auto;  /* 设置视频的高度自动适应 */
+        }
+        </style>
 </head>
 <body>
     <header>
@@ -10,67 +32,54 @@
     </header>
     <section id="project-introduction">
         <h1>项目介绍</h1>
-        <h2>The light bulb is first connected to the circuit board,<br>
-           and then to the ultrasonic sensor, After writing the code in the Arudino program,<br>
-           input it so that the light bulb goes out when the object is close and lights up when it is far away</h2>
+        <h2>When your hand approaches the ultrasonic sensor, display the distance between your hand and the ultrasonic sensor</h2>
     </section>
     <section id="code-introduction">
         <h1>代码介绍</h1>
-        int count = 0;<br>
-const int LED1=12;<br>
-const int LED2=13;<br>
-long duration;<br>
-// PULSE WIDTH<br>
+        #include <SoftwareSerial.h><br>
 
-void setup() {<br>
-    // set Serial communication<br>
-    Serial.begin(115200);<br>
-    // set pin mode<br>
-    pinMode(TrigPin, OUTPUT);<br>
-    pinMode(EchoPin, INPUT);<br>
-    // init pin<br>
-    digitalWrite(TrigPin, LOW);<br>
-    delay(1);<br>
-    pinMode(LED1, OUTPUT); //<br>
-    pinMode(LED2, OUTPUT); //<br>
-}<br>
-
-void loop() {<br>
-    int distance=getDistance();//<br>
-    Serial.println(count++);<br>
-    Serial.println(getDistance());<br>
-    Serial.println("");<br>
-    Serial.println("");<br>
-    if(distance>500){<br>
-      digitalWrite(LED1,HIGH);<br>
-      digitalWrite(LED2,LOW);<br>
-      }<br>
-    else{<br>
-      digitalWrite(LED1,LOW);<br>
-      digitalWrite(LED2,HIGH);<br>
-      }<br>
-    delay(1000);<br>
-}<br>
-
-long getDistance() {<br>
-    // trig<br>
-    digitalWrite(TrigPin, LOW);<br>
-    delayMicroseconds(2);<br>
-    digitalWrite(TrigPin, HIGH);<br>
-    delayMicroseconds(10);<br>
-    digitalWrite(TrigPin, LOW);<br>
-    // echo<br>
-    duration = pulseIn(EchoPin, HIGH);     // unit: us<br>
-    return duration * 0.34029 / 2;         // unit: mm<br>
-}<br>
+            const int trigPin = 7; <br>
+            const int echoPin = 6; <br>   
+            void setup() {<br>
+              Serial.begin(9600);  <br>   
+              pinMode(trigPin, OUTPUT);  <br>
+              pinMode(echoPin, INPUT);   <br> 
+            }<br>
+            
+            void loop() {<br>
+              digitalWrite(trigPin, LOW); <br>
+              delayMicroseconds(2);       <br>
+              digitalWrite(trigPin, HIGH); <br>
+              delayMicroseconds(10); <br>     
+              digitalWrite(trigPin, LOW);  <br>
+              unsigned long pulseStartTime = micros();<br>
+              while (digitalRead(echoPin) == LOW);<br>
+              unsigned long pulseEndTime = micros();<br>
+              unsigned long pulseDuration = pulseEndTime - pulseStartTime;<br>
+              float distanceCm = pulseDuration * 0.034 / 2; <br>
+              float distanceInches = distanceCm / 2.54;    <br> 
+              Serial.print("Distance: ");<br>
+              Serial.print(distanceCm);<br>
+              Serial.print(" cm (");<br>
+              Serial.print(distanceInches);<br>
+              Serial.println(" inches)");<br>
+              
+              delay(500); <br>
+            }
     </section>
     <section id="circuit-diagram">
         <h1>电路图展示</h1>
-        <!-- 电路图展示内容 -->
+        <img src="image/AD1.JPG">
     </section>
     <section id="final-product">
         <h1>成品展示</h1>
-        <!-- 成品展示内容 -->
+        <div class="video-container">
+            <video controls>
+              <source src="image/AD1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
     </section>
+    <a href="javascript:history.back()" class="back-button">Back</a>
 </body>
 </html>
