@@ -194,51 +194,44 @@
                 <section class="shop">
                     <h2>Flowing water lamp</h2>
                     <p><strong>Circuit diagram</strong>
-                    <BR> <img src="image/G.png" alt="G"><br>
+                    <BR> <img src="image/OUT1.jpg" alt="G" width="400"><br>
+                        <BR> <img src="image/OUT2.jpg" alt="G" width="400"><br>
+                            <BR> <img src="image/OUT3.jpg" alt="G"><br>
                     <h4><br><strong>code</strong>
-                    <br>Adafruit_NeoPixel strip = Adafruit_NeoPixel(8, PIN, NEO_GRB + NEO_KHZ800);
-    <br>void setup(){
-    <br> strip.begin();
-    <br>strip.setBrightness(50);
-    <br>strip.show(); 
-    <br>}
-    <br>void loop() {
-    <br>colorWipe(strip.Color(255, 0, 0), 100);
-    <br>colorWipe(strip.Color(0, 255, 0), 50);
-    <br>colorWipe(strip.Color(0, 0, 255), 50); 
-    <br>theaterChase(strip.Color(127, 127, 127), 50);
-    <br>theaterChase(strip.Color(127, 0, 0), 50);
-    <br>theaterChase(strip.Color(0, 0, 127), 50);
-    <br>rainbow(20);
-    <br>rainbowCycle(20);
-    <br>theaterChaseRainbow(50);
-    <br>}
-    <br>void colorWipe(uint32_t c, uint8_t wait) {
-        <br>for(uint16_t i=0; i<strip.numPixels(); i++) {
-        <br>strip.setPixelColor(i, c);
-        <br>strip.show();
-        <br>delay(wait);
-        <br>}
-      <br>}
-      
-      <br>void rainbow(uint8_t wait) {
-        <br>uint16_t i, j;
-      
-        <br>for(j=0; j<256; j++) {
-          <br>for(i=0; i<strip.numPixels(); i++) {
-            <br>strip.setPixelColor(i, Wheel((i+j) & 255));
-          <br>}
-          <br>strip.show();
-          <br>delay(wait);
-        <br>}
-      <br>}</h4>
+                    <br>const int ledPins[] = {2, 3, 4, 5}; <br>
+                    const int numLEDs = sizeof(ledPins) / sizeof(ledPins[0]); <br>
+                    int counter = 0; // 初始化计数器<br>
+                    
+                    void setup() {<br>
+                      for(int i = 0; i < numLEDs; i++) {<br>
+                        pinMode(ledPins[i], OUTPUT); //output<br>
+                      }<br>
+                    }<br>
+                    
+                    void loop() {<br>
+                    
+                      for(int i = 0; i <= counter; i++) {<br>
+                        digitalWrite(ledPins[i], HIGH);<br>
+                      }<br>
+                      delay(1000); <br>
+                    
+                      for(int i = 0; i < numLEDs; i++) {<br>
+                        digitalWrite(ledPins[i], LOW);<br>
+                      }<br>
+                      delay(1000); <br>
+                    
+                      counter++; <br>
+                      if(counter == numLEDs) { <br>
+                        counter = 0;<br>
+                      }<br>
+                    }</h4>
 
 
                   
                     <h2><br><br><strong>Result</strong></h2>
                     <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
                         <video width="640" height="480" controls>
-                          <source src="image/H.mp4" type="video/mp4">
+                          <source src="image/OUT1.mp4" type="video/mp4">
                           Your browser does not support the video tag.
                         </video>
                       </div>
