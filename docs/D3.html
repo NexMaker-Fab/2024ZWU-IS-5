@@ -36,46 +36,39 @@
     </section>
     <section id="code-introduction">
         <h1>代码介绍</h1>
-        #include <SoftwareSerial.h><br>
+const int soundSensorPin = A0;<br>
+const int ledPin = 9;<br>
+const int soundThreshold = 550; <br>
 
-            const int trigPin = 7; <br>
-            const int echoPin = 6; <br>   
-            void setup() {<br>
-              Serial.begin(9600);  <br>   
-              pinMode(trigPin, OUTPUT);  <br>
-              pinMode(echoPin, INPUT);   <br> 
-            }<br>
-            
-            void loop() {<br>
-              digitalWrite(trigPin, LOW); <br>
-              delayMicroseconds(2);       <br>
-              digitalWrite(trigPin, HIGH); <br>
-              delayMicroseconds(10); <br>     
-              digitalWrite(trigPin, LOW);  <br>
-              unsigned long pulseStartTime = micros();<br>
-              while (digitalRead(echoPin) == LOW);<br>
-              unsigned long pulseEndTime = micros();<br>
-              unsigned long pulseDuration = pulseEndTime - pulseStartTime;<br>
-              float distanceCm = pulseDuration * 0.034 / 2; <br>
-              float distanceInches = distanceCm / 2.54;    <br> 
-              Serial.print("Distance: ");<br>
-              Serial.print(distanceCm);<br>
-              Serial.print(" cm (");<br>
-              Serial.print(distanceInches);<br>
-              Serial.println(" inches)");<br>
-              
-              delay(500); <br>
-            }
+void setup() {<br>
+  Serial.begin(9600);<br>
+  pinMode(ledPin, OUTPUT);<br>
+}<br>
+
+void loop() {<br>
+
+  int soundLevel = analogRead(soundSensorPin);<br>
+if (soundLevel > soundThreshold) {<br>
+
+    digitalWrite(ledPin, HIGH);<br>
+  } else {<br>
+
+    digitalWrite(ledPin, LOW);<br>
+  }<br>
+  
+
+  delay(100); <br>
+}<br>
     </section>
     <section id="circuit-diagram">
         <h1>电路图展示</h1>
-        <img src="image/AD1.JPG">
+        <img src="image/IN1.png" width="600">
     </section>
     <section id="final-product">
         <h1>成品展示</h1>
         <div class="video-container">
             <video controls>
-              <source src="image/AD1.mp4" type="video/mp4">
+              <source src="image/IN1.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
